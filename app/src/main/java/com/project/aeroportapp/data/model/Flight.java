@@ -26,5 +26,7 @@ public class Flight {
     public String getAirline(){return airline;}
     public String getGate(){return gate;}
 
-
+    public String getTime() {
+        return time;
+    }
 }

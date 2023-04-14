@@ -29,8 +29,4 @@ public class ScheduleActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void goScheduleTable(View v) {
-        Intent intent = new Intent(this, ScheduleTableActivity.class);
-        startActivity(intent);
-    }
 }

@@ -34,13 +34,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.view.ScheduleTableActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.view.ScheduleActivity"
             android:exported="false">
             <meta-data

@@ -109,68 +109,68 @@
         android:background="@color/body_background_grey">
     </androidx.recyclerview.widget.RecyclerView>
 
-    <LinearLayout
-        android:id="@+id/bottombar_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottombar_bg"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@color/white"-->
 
-        android:orientation="horizontal">
+<!--        android:orientation="horizontal">-->
 
-        <ImageButton
-            android:id="@+id/btn_menu_home"
-            android:layout_width="64sp"
-            android:layout_height="64sp"
-            android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/heading_tablo"
-            android:scaleType="centerInside"
-            android:src="@drawable/boarding" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_menu_home"-->
+<!--            android:layout_width="64sp"-->
+<!--            android:layout_height="64sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:contentDescription="@string/heading_tablo"-->
+<!--            android:scaleType="centerInside"-->
+<!--            android:src="@drawable/boarding" />-->
 
-        <ImageButton
-            android:id="@+id/btn_menu_reg"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/heading_register"
-            android:scaleType="centerInside"
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_menu_reg"-->
+<!--            android:layout_width="64dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:contentDescription="@string/heading_register"-->
+<!--            android:scaleType="centerInside"-->
 
-            android:src="@drawable/passport_control" />
-        <ImageButton
-            android:id="@+id/btn_menu_services"
-            android:layout_width="64sp"
-            android:layout_height="64sp"
-            android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:contentDescription="@string/heading_services"
-            android:scaleType="centerInside"
-
-
-            android:src="@drawable/business_trip" />
-        <ImageButton
-            android:id="@+id/btn_menu_wiki"
-            android:layout_width="64sp"
-            android:layout_height="64sp"
-            android:layout_weight="1"
-            android:backgroundTint="@color/blue_700"
-            android:contentDescription="@string/heading_wiki"
-            android:scaleType="centerInside"
-            android:src="@drawable/information_white" />
+<!--            android:src="@drawable/passport_control" />-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_menu_services"-->
+<!--            android:layout_width="64sp"-->
+<!--            android:layout_height="64sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:contentDescription="@string/heading_services"-->
+<!--            android:scaleType="centerInside"-->
 
 
-        <ImageButton
-            android:id="@+id/btn_menu_more"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="1"
-            android:backgroundTint="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/more_horiz_48px"
+<!--            android:src="@drawable/business_trip" />-->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_menu_wiki"-->
+<!--            android:layout_width="64sp"-->
+<!--            android:layout_height="64sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@color/blue_700"-->
+<!--            android:contentDescription="@string/heading_wiki"-->
+<!--            android:scaleType="centerInside"-->
+<!--            android:src="@drawable/information_white" />-->
 
-            />
-    </LinearLayout>
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_menu_more"-->
+<!--            android:layout_width="64dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:scaleType="centerInside"-->
+<!--            android:src="@drawable/more_horiz_48px"-->
+
+<!--            />-->
+<!--    </LinearLayout>-->
 
 </RelativeLayout>
 

@@ -1,10 +1,12 @@
 package com.project.aeroportapp.ui.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.project.aeroportapp.R;
 import com.project.aeroportapp.data.model.Flight;
@@ -25,12 +28,72 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements NavHost {
+    private int currentfragment = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NavController nv = Navigation.findNavController(findViewById(R.id.fragment_flights));
+        ImageButton table_button = findViewById(R.id.btn_menu_home);
+        ImageButton reg_button = findViewById(R.id.btn_menu_reg);
+        ImageButton services_button = findViewById(R.id.btn_menu_services);
+        ImageButton wiki_button = findViewById(R.id.btn_menu_wiki);
+
+        wiki_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        nv.navigate(R.id.action_flightFragment_to_fragmentWiki);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        nv.navigate(R.id.action_fragmentServices_to_fragmentWiki4);
+                    case 4:
+                        break;
+                }
+                currentfragment = 4;
+            }
+        });
+        table_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        nv.navigate(R.id.action_fragmentServices_to_flightFragment2);
+                        break;
+                    case 4:
+                        nv.navigate(R.id.action_fragmentWiki_to_flightFragment2);
+                        break;
+                }
+                currentfragment = 1;
+            }
+        });
+        services_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        nv.navigate(R.id.action_flightFragment_to_fragmentServices);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        nv.navigate(R.id.action_fragmentWiki_to_fragmentServices3);
+                }
+                currentfragment = 3;
+            }
+        });
+
 //        NavController navController = Navigation.findNavController(this, R.id.bottombar_fragment);
 //        NavController navController1 = Navigation.findNavController(this, R.id.fragment_flights);
 
@@ -65,6 +128,12 @@ public class MainActivity extends FragmentActivity {
 //            }
 //        });
 
+    }
+
+    @NonNull
+    @Override
+    public NavController getNavController() {
+        return null;
     }
 //    private void setNewFragment(Fragment fragment) {
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

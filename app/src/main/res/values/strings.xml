@@ -17,6 +17,7 @@
     <string name="btn_wiki1">Правила</string>
     <string name="btn_wiki2">Контроль</string>
     <string name="btn_wiki3">Багаж</string>
+    <string name="back_button">Назад</string>
 
     <string name="departure">Вылет</string>
     <string name="arrival">Прилет</string>

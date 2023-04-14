@@ -2,11 +2,21 @@ package com.project.aeroportapp.ui.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.project.aeroportapp.ui.adapters.CustomRecyclerViewAdapter;
+import com.project.aeroportapp.ui.viewmodels.ScheduleViewModel;
+import com.project.aeroportapp.ui.adapters.ScheduleLIstAdapter;
 
 import com.project.aeroportapp.R;
 
@@ -16,6 +26,7 @@ import com.project.aeroportapp.R;
  * create an instance of this fragment.
  */
 public class ScheduleFragment extends Fragment {
+    private View rootView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +72,27 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
+        rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button back_button = rootView.findViewById(R.id.btn_back_from_schedule);
+        ScheduleViewModel vm = new ScheduleViewModel();
+        RecyclerView rv = rootView.findViewById(R.id.list_view_schedule);
+        ScheduleLIstAdapter adapter = new ScheduleLIstAdapter(this.getContext(), vm, this);
+        LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(lm);
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_scheduleFragment_to_flightFragment2);
+            }
+        });
     }
 }
