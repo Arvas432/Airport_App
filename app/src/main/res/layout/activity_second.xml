@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_background_grey"
+    tools:context=".ui.view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passport_control"
+            android:textSize="24sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_weight="1"
+            android:layout_marginVertical="16sp"/>
+        <ImageButton
+            android:id="@+id/btn_menu_more"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/close_48px"
+            android:onClick="goBack"
+
+            />
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/upper"
+        android:background="@color/body_background_grey">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="32sp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/passport_control_content"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+
+

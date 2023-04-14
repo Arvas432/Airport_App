@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav.xml"
+    app:startDestination="@id/flightFragment">
+
+    <fragment
+        android:id="@+id/flightFragment"
+        android:name="com.project.aeroportapp.ui.view.FlightFragment"
+        android:label="fragment_flight"
+        tools:layout="@layout/fragment_flight" />
+    <fragment
+        android:id="@+id/bottomBarFragment"
+        android:name="com.project.aeroportapp.ui.view.BottomBarFragment"
+        android:label="BottomBarFragment"
+        tools:layout="@layout/fragment_bottom_bar">
+        <action
+            android:id="@+id/action_bottomBarFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_bottomBarFragment_to_fragmentWiki"
+            app:destination="@id/fragmentWiki" />
+        <action
+            android:id="@+id/action_bottomBarFragment_to_fragmentServices"
+            app:destination="@id/fragmentServices" />
+        <action
+            android:id="@+id/action_bottomBarFragment_to_flightFragment"
+            app:destination="@id/flightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.project.aeroportapp.ui.view.ScheduleFragment"
+        android:label="ScheduleFragment"
+        tools:layout="@layout/fragment_schedule"/>
+    <fragment
+        android:id="@+id/fragmentWiki"
+        android:name="com.project.aeroportapp.ui.view.FragmentWiki"
+        android:label="FragmentWiki"
+        tools:layout="@layout/fragment_wiki"/>
+    <fragment
+        android:id="@+id/fragmentServices"
+        android:name="com.project.aeroportapp.ui.view.FragmentServices"
+        android:label="FragmentServices"
+        tools:layout="@layout/fragment_services"/>
+</navigation>

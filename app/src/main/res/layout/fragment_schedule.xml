@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_background_grey"
+    tools:context=".ui.view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_schedule"
+            android:textSize="24sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tabbar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upper"
+
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_fragment_internal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue_700"
+            android:text="@string/internal"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_fragment_international"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:text="@string/international"
+            android:textColor="@color/blue_700" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabbar_bg"
+        android:background="@color/body_background_grey">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/bottombar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_tablo"
+            android:onClick="goHome"
+            android:scaleType="centerInside"
+            android:src="@drawable/boarding" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_reg"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/passport_control" />
+        <ImageButton
+            android:id="@+id/btn_menu_services"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_services"
+            android:scaleType="centerInside"
+
+
+            android:src="@drawable/business_trip" />
+        <ImageButton
+            android:id="@+id/btn_menu_wiki"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_wiki"
+            android:scaleType="centerInside"
+            android:src="@drawable/information" />
+
+
+        <ImageButton
+            android:id="@+id/btn_menu_more"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/more_horiz_48px"
+
+            />
+    </LinearLayout>
+
+</RelativeLayout>
+

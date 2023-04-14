@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:srcCompat="@drawable/utair"
+                android:layout_marginTop="-4sp"
+                android:layout_marginEnd="4sp"
+                android:contentDescription="utair2" />
+            <TextView
+                android:id="@+id/text_view_avia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tablo_table_list_item_avia" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/text_view_flight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+           android:textColor="@color/blue_700"
+            android:layout_marginEnd="16dp"
+            android:text="@string/schedule_table_list_item_flight" />
+
+    </LinearLayout>
+        <TextView
+                android:id="@+id/textViewPeriod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/schedule_table_list_item_period" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/schedule_table_list_item_time" />
+        <TextView
+            android:id="@+id/textViewDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/schedule_table_list_item_days" />
+
+
+</LinearLayout>

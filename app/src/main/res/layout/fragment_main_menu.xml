@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_background_grey"
+    tools:context=".ui.view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/menu_item1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_tablo"
+            android:scaleType="centerInside"
+            android:src="@drawable/boarding" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_tablo"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item1"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/passport_control" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_register"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item2"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_menu_services"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_services"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/business_trip" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_services"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item3"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_menu_wiki"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_wiki"
+            android:scaleType="centerInside"
+            android:src="@drawable/information" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_route"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item4"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/route" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_route"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item5"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/parking_2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_parking"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item6"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/travel_2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_map"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item7"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/airport_2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_airport"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/menu_item9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:layout_below="@id/menu_item8"
+        android:orientation="horizontal">
+        <ImageButton
+
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/emergency" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_emergency"
+            android:textSize="22sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+</RelativeLayout>

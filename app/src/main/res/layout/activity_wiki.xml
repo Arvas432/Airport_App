@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/body_background_grey"
+    tools:context=".ui.view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/body_background_grey"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heading_wiki"
+            android:textSize="24sp"
+            android:textColor="@color/blue_500"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginStart="16sp"
+            android:layout_marginVertical="16sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tabbar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upper"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="16sp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="48sp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:layout_marginEnd="8sp"
+            android:paddingStart="16sp"
+            android:background="@drawable/background_text_field"
+            android:inputType="textPersonName"
+            android:text="@string/search_field" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_search"
+            android:layout_width="64sp"
+            android:layout_height="48sp"
+            android:background="@drawable/background_search_btn"
+
+            android:contentDescription="@string/heading_tablo"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_search" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/horizontal_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabbar_bg"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="16sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_menu_wiki_1"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginEnd="16sp"
+            android:backgroundTint="@color/white"
+            android:scaleType="centerInside"
+            android:text="@string/btn_wiki1"
+            android:textColor="@color/black"
+            app:cornerRadius="30sp" />
+        <Button
+            android:id="@+id/btn_menu_wiki_2"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginEnd="16sp"
+            android:backgroundTint="@color/btn_background_grey"
+            android:scaleType="centerInside"
+            android:text="@string/btn_wiki2"
+            android:textColor="@color/blue_700"
+            app:cornerRadius="30sp" />
+        <Button
+            android:id="@+id/btn_menu_wiki_3"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginEnd="16sp"
+            android:backgroundTint="@color/btn_background_grey"
+            android:scaleType="centerInside"
+            android:text="@string/btn_wiki3"
+            android:textColor="@color/blue_700"
+            app:cornerRadius="30sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view_wiki"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/horizontal_menu"
+        android:background="@color/body_background_grey">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/bottombar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_tablo"
+            android:scaleType="centerInside"
+            android:src="@drawable/boarding" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_reg"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_register"
+            android:scaleType="centerInside"
+
+            android:src="@drawable/passport_control" />
+        <ImageButton
+            android:id="@+id/btn_menu_services"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/heading_services"
+            android:scaleType="centerInside"
+
+
+            android:src="@drawable/business_trip" />
+        <ImageButton
+            android:id="@+id/btn_menu_wiki"
+            android:layout_width="64sp"
+            android:layout_height="64sp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue_700"
+            android:contentDescription="@string/heading_wiki"
+            android:scaleType="centerInside"
+            android:src="@drawable/information_white" />
+
+
+        <ImageButton
+            android:id="@+id/btn_menu_more"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/more_horiz_48px"
+
+            />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
