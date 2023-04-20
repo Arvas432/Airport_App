@@ -79,6 +79,11 @@
             android:layout_marginStart="16sp"
             android:layout_marginVertical="16sp"
             android:layout_weight="1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSave"
+            android:text="Сохранить"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

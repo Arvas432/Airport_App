@@ -54,6 +54,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Flight item = items.get(position);
+        holder.Itemtime.setText(item.getTime());
         holder.Itemairline.setText(item.getAirline());
         if(item.getRegistrationFinished())
         {
