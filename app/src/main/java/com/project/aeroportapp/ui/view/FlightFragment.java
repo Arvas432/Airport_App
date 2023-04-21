@@ -1,5 +1,6 @@
 package com.project.aeroportapp.ui.view;
 
+import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -8,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
@@ -26,6 +28,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.annotation.Retention;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,6 +37,8 @@ import com.project.aeroportapp.R;
 import com.project.aeroportapp.data.model.Flight;
 import com.project.aeroportapp.data.repositories.FlightsRepository;
 import com.project.aeroportapp.ui.adapters.CustomRecyclerViewAdapter;
+import com.project.aeroportapp.ui.adapters.DatabaseListAdapter;
+import com.project.aeroportapp.ui.viewmodels.DatabaseViewModel;
 import com.project.aeroportapp.ui.viewmodels.FlightTableViewModel;
 
 /**
@@ -53,6 +58,7 @@ public class FlightFragment extends Fragment implements NavHost {
     private String mParam1;
     private String mParam2;
     private Flight flight;
+    private DatabaseViewModel dvm;
 
     public FlightFragment() {
         // Required empty public constructor
@@ -119,9 +125,15 @@ public class FlightFragment extends Fragment implements NavHost {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
+//        RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
         FlightTableViewModel flightTableViewModel = new FlightTableViewModel();
-        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(this.getContext(), flightTableViewModel, this);
+//        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(this.getContext(), flightTableViewModel, this);
+//        LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
+//        rv.setAdapter(adapter);
+//        rv.setLayoutManager(lm);
+        RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
+        DatabaseViewModel databaseViewModel = new DatabaseViewModel(this);
+        DatabaseListAdapter adapter = new DatabaseListAdapter(this.getContext(), databaseViewModel, this);
         LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
         rv.setAdapter(adapter);
         rv.setLayoutManager(lm);
@@ -164,6 +176,7 @@ public class FlightFragment extends Fragment implements NavHost {
         });
 
     }
+
 
 
     @NonNull
