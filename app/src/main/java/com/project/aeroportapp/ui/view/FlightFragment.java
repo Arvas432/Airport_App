@@ -164,9 +164,11 @@ public class FlightFragment extends Fragment implements NavHost {
                 }
                 SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.last_notification_date_key), new Date().toString());
+                editor.putString(getString(R.string.currentdatekey), new Date().toString());
                 editor.apply();
 
+                String currdate = sharedPref.getString(getString(R.string.currentdatekey),"");
+                Log.i("sharedpref", currdate);
                 requestSavePermissionLauncher.launch(filename);
 
             } catch (IOException e) {
