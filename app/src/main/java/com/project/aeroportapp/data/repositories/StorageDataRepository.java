@@ -16,9 +16,9 @@ public class StorageDataRepository {
     {
         ds.writeTo(input);
     }
-    public void saveLastFlight()
+    public void saveLastFlight(String input)
     {
-        String input = new Date() + " " + flightDAO.getFlightsList().get(0).getFlightCode() + " " + flightDAO.getFlightsList().get(0).getAirline() + " " + flightDAO.getFlightsList().get(0).getCity() + "\n";
+        //String input = new Date() + " " + flightDAO.getFlightsList().get(0).getFlightCode() + " " + flightDAO.getFlightsList().get(0).getAirline() + " " + flightDAO.getFlightsList().get(0).getCity() + "\n";
         add(input);
     }
     public StorageDataRepository(Application app)

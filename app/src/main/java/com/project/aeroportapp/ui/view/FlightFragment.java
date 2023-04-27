@@ -182,7 +182,7 @@ public class FlightFragment extends Fragment implements NavHost {
 //
 //                String currdate = sharedPref.getString(getString(R.string.currentdatekey),"");
 //                Log.i("sharedpref", currdate);
-                svm.writeToFile();
+                svm.writeToFile(flight.getFlightCode() + " " + flight.getAirline());
                 requestSavePermissionLauncher.launch(filename);
 
         });

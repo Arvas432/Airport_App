@@ -23,9 +23,9 @@ public class StorageViewModel extends ViewModel {
         repository = new StorageDataRepository(application);
         repos = new FlightsDatabaseRepos(application);
     }
-    public void writeToFile()
+    public void writeToFile(String input)
     {
-        repository.saveLastFlight();
+        repository.saveLastFlight(input);
     }
 
 
