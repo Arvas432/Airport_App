@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapter.ViewHolder>{
     private final LayoutInflater inflater;
-    private List<FlightEntity> items;
+    private List<Flight> items;
     private DatabaseViewModel flightTableViewModel;
     public DatabaseListAdapter(Context context, DatabaseViewModel flightTableViewModel_, Fragment fragment)
     {
@@ -64,12 +64,12 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        FlightEntity item = items.get(position);
+        Flight item = items.get(position);
         holder.Itemtime.setText(item.getTime());
         holder.Itemairline.setText(item.getAirline());
         if(item.getRegistrationFinished())
         {
-            holder.ItemregistrationFinished.setText("Регистрация завершена");
+            holder.ItemregistrationFinished.setText("Регистрация окончена");
         }
         else
         {
@@ -77,7 +77,7 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
         }
         holder.ItemflightCode.setText(item.getFlightCode());
         holder.Itemcity.setText(item.getCity());
-        holder.Itemgate.setText(item.getGate());
+        holder.Itemgate.setText("Выход - " +item.getGate());
         holder.itemView.setOnClickListener((layout) -> {
             Log.i("TAG", "Element " + position + " clicked");
             Toast.makeText(inflater.getContext(), "Element " + position + " clicked", Toast.LENGTH_SHORT).show();

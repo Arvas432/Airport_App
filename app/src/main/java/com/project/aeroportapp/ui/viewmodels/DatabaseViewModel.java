@@ -22,20 +22,22 @@ import com.project.aeroportapp.data.data_sources.AppDatabase;
 import com.project.aeroportapp.data.model.Flight;
 import com.project.aeroportapp.data.entities.FlightEntity;
 import com.project.aeroportapp.data.repositories.FlightsRepository;
-public class DatabaseViewModel {
+public class DatabaseViewModel extends ViewModel{
     FlightsDatabaseRepos fr;
-    public MutableLiveData<List<FlightEntity>> flightdata;
-    public DatabaseViewModel(Fragment frag)
+    public LiveData<List<Flight>> flightdata;
+    public DatabaseViewModel(Application app)
     {
-        fr = new FlightsDatabaseRepos(frag);
+
+        fr = new FlightsDatabaseRepos(app);
         flightdata = fr.get();
+
     }
-    public LiveData<List<FlightEntity>> getflightdata() {
+    public LiveData<List<Flight>> getflightdata() {
         return flightdata;
     }
-    public List<FlightEntity> getFlights(){
+    public List<Flight> getFlights(){
         if (flightdata.getValue() == null){
-            flightdata.setValue(fr.get().getValue());
+            flightdata = fr.get();
         }
         return flightdata.getValue();
     }

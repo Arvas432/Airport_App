@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.project.aeroportapp.data.dao.FlightDAO;
 import com.project.aeroportapp.data.entities.FlightEntity;
-import com.project.aeroportapp.data.model.Flight;
 
 @Database(entities = {FlightEntity.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {

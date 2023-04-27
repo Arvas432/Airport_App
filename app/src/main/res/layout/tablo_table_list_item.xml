@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:orientation="vertical"
 
     >
@@ -31,7 +31,7 @@
             >
         <TextView
             android:id="@+id/tablo_table_text_view_time"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_marginEnd="16dp"
@@ -72,16 +72,16 @@
 
             <TextView
                 android:id="@+id/tablo_table_text_view_days"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:text="@string/tablo_table_list_item_avia" />
             <TextView
                 android:id="@+id/text_view_gate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="14dp"
                 android:text="@string/tablo_table_list_item_gate" />
 
         </LinearLayout>

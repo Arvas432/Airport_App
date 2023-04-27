@@ -1,4 +1,4 @@
-package com.project.aeroportapp.data.data_sources;
+package com.project.aeroportapp.data.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;

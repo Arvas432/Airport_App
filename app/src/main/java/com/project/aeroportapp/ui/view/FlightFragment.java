@@ -1,5 +1,6 @@
 package com.project.aeroportapp.ui.view;
 
+import android.Manifest;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -33,6 +35,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+
+import com.google.gson.Gson;
 import com.project.aeroportapp.R;
 import com.project.aeroportapp.data.model.Flight;
 import com.project.aeroportapp.data.repositories.FlightsRepository;
@@ -40,6 +44,7 @@ import com.project.aeroportapp.ui.adapters.CustomRecyclerViewAdapter;
 import com.project.aeroportapp.ui.adapters.DatabaseListAdapter;
 import com.project.aeroportapp.ui.viewmodels.DatabaseViewModel;
 import com.project.aeroportapp.ui.viewmodels.FlightTableViewModel;
+import com.project.aeroportapp.ui.viewmodels.StorageViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +64,7 @@ public class FlightFragment extends Fragment implements NavHost {
     private String mParam2;
     private Flight flight;
     private DatabaseViewModel dvm;
+    private StorageViewModel svm;
 
     public FlightFragment() {
         // Required empty public constructor
@@ -70,13 +76,14 @@ public class FlightFragment extends Fragment implements NavHost {
                     try {
                         ParcelFileDescriptor txt = getActivity().getContentResolver().openFileDescriptor(uri, "w");
                         FileOutputStream fileOutputStream = new FileOutputStream(txt.getFileDescriptor());
-                        fileOutputStream.write((new Date() + " " + this.flight.getFlightCode()).getBytes());
+                        fileOutputStream.write(flight.getFlightCode().getBytes());
                         fileOutputStream.close();
                         txt.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
+
             });
     private final ActivityResultLauncher<String> requestPermissionLauncher =
             registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -127,12 +134,14 @@ public class FlightFragment extends Fragment implements NavHost {
         super.onViewCreated(view, savedInstanceState);
 //        RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
         FlightTableViewModel flightTableViewModel = new FlightTableViewModel();
+        svm = new StorageViewModel(this.getActivity().getApplication());
+        //StorageViewModel storageViewModel = new StorageViewModel(this.getActivity().getApplication());
 //        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(this.getContext(), flightTableViewModel, this);
 //        LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
 //        rv.setAdapter(adapter);
 //        rv.setLayoutManager(lm);
         RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
-        DatabaseViewModel databaseViewModel = new DatabaseViewModel(this);
+        DatabaseViewModel databaseViewModel = new DatabaseViewModel(this.getActivity().getApplication());
         DatabaseListAdapter adapter = new DatabaseListAdapter(this.getContext(), databaseViewModel, this);
         LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
         rv.setAdapter(adapter);
@@ -146,34 +155,35 @@ public class FlightFragment extends Fragment implements NavHost {
 
             }
         });
+//        saveButton.setOnClickListener((lst) -> {
+//            requestPermissionLauncher.launch("savedata.txt");
+//            //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+//            svm.writeToFile();
+//        });
         saveButton.setOnClickListener((sv) -> {
             flight = flightTableViewModel.getFlights().get(0);
             String filename = "savedata.txt";
-            String fileContents = new Date() + " " + this.flight.getFlightCode() + " " + this.flight.getAirline() + " " + this.flight.getCity() + "\n";
-            try {
-                File file = new File(getContext().getFilesDir(), filename);
-                file.createNewFile();
-                FileOutputStream fos = new FileOutputStream(file, true);
-                fos.write(fileContents.getBytes());
-                fos.close();
-
-                FileInputStream fis = getContext().openFileInput(filename);
-                byte[] buffer = new byte[1024];
-                while (fis.read(buffer) != -1) {
-                    Log.i("content", new String(buffer, StandardCharsets.UTF_8));
-                }
-                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.currentdatekey), new Date().toString());
-                editor.apply();
-
-                String currdate = sharedPref.getString(getString(R.string.currentdatekey),"");
-                Log.i("sharedpref", currdate);
+            // String fileContents = new Date() + " " + this.flight.getFlightCode() + " " + this.flight.getAirline() + " " + this.flight.getCity() + "\n";
+//                File file = new File(getContext().getFilesDir(), filename);
+//                file.createNewFile();
+//                FileOutputStream fos = new FileOutputStream(file, true);
+//                fos.write(fileContents.getBytes());
+//                fos.close();
+//
+//                FileInputStream fis = getContext().openFileInput(filename);
+//                byte[] buffer = new byte[1024];
+//                while (fis.read(buffer) != -1) {
+//                    Log.i("content", new String(buffer, StandardCharsets.UTF_8));
+//                }
+//                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPref.edit();
+//                editor.putString(getString(R.string.currentdatekey), new Date().toString());
+//                editor.apply();
+//
+//                String currdate = sharedPref.getString(getString(R.string.currentdatekey),"");
+//                Log.i("sharedpref", currdate);
+                svm.writeToFile();
                 requestSavePermissionLauncher.launch(filename);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
         });
 

@@ -1,12 +1,10 @@
 package com.project.aeroportapp.data.repositories;
-import com.project.aeroportapp.data.data_sources.AppDatabase;
-import com.project.aeroportapp.data.data_sources.FlightDAO;
+import com.project.aeroportapp.data.dao.FlightDAO;
 import com.project.aeroportapp.data.data_sources.FlightsSource;
 import com.project.aeroportapp.data.entities.FlightEntity;
 import com.project.aeroportapp.data.model.Flight;
-import androidx.lifecycle.LiveData;
+
 import androidx.lifecycle.MutableLiveData;
-import androidx.room.Room;
 
 import java.util.ArrayList;
 import java.util.List;
