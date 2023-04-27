@@ -59,13 +59,18 @@ public class StorageDataSource {
 
         String filename = "savedata.txt";
         try {
+            File file = new File(app.getApplicationContext().getFilesDir() ,filename);
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file, true);
+            fos.write(data.getBytes());
+            fos.close();
 //            File file = Environment.getExternalStoragePublicDirectory(
 //                    Environment.DIRECTORY_DOWNLOADS);
 //          //  File file = new File(app.getApplicationContext().getFilesDir(), filename);
-//            file.createNewFile();
-//            FileOutputStream fos = new FileOutputStream(file, true);
-//            fos.write(data.getBytes());
-//            fos.close();
+//
+//
+//
+//
 //            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 //            writer.write(data);
 //            writer.close();
@@ -76,7 +81,6 @@ public class StorageDataSource {
 //            myOutWriter.append(data);
 //            myOutWriter.close();
 //            fOut.close();
-
             FileInputStream fis = app.getApplicationContext().openFileInput(filename);
             byte[] buffer = new byte[1024];
             while (fis.read(buffer) != -1) {
