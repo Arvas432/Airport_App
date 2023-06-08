@@ -5,6 +5,11 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -25,6 +30,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -35,6 +42,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 import com.project.aeroportapp.R;
@@ -132,65 +140,28 @@ public class FlightFragment extends Fragment implements NavHost {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
         FlightTableViewModel flightTableViewModel = new FlightTableViewModel();
         svm = new StorageViewModel(this.getActivity().getApplication());
-        //StorageViewModel storageViewModel = new StorageViewModel(this.getActivity().getApplication());
-//        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(this.getContext(), flightTableViewModel, this);
-//        LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
-//        rv.setAdapter(adapter);
-//        rv.setLayoutManager(lm);
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         RecyclerView rv = rootView.findViewById(R.id.recycler_view_tablo);
         DatabaseViewModel databaseViewModel = new DatabaseViewModel(this.getActivity().getApplication());
         DatabaseListAdapter adapter = new DatabaseListAdapter(this.getContext(), databaseViewModel, this);
         LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
         rv.setAdapter(adapter);
         rv.setLayoutManager(lm);
-        Button scheduleButton = rootView.findViewById(R.id.btn_schedule);
+        TextView date = rootView.findViewById(R.id.Date_textview);
+        date.setText("Сегодня: " + currentDate);
         Button saveButton = rootView.findViewById(R.id.buttonSave);
-        scheduleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_flightFragment_to_scheduleFragment);
-
-            }
-        });
-//        saveButton.setOnClickListener((lst) -> {
-//            requestPermissionLauncher.launch("savedata.txt");
-//            //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
-//            svm.writeToFile();
-//        });
         saveButton.setOnClickListener((sv) -> {
-            flight = flightTableViewModel.getFlights().get(0);
-            String filename = "savedata.txt";
-            // String fileContents = new Date() + " " + this.flight.getFlightCode() + " " + this.flight.getAirline() + " " + this.flight.getCity() + "\n";
-//                File file = new File(getContext().getFilesDir(), filename);
-//                file.createNewFile();
-//                FileOutputStream fos = new FileOutputStream(file, true);
-//                fos.write(fileContents.getBytes());
-//                fos.close();
-//
-//                FileInputStream fis = getContext().openFileInput(filename);
-//                byte[] buffer = new byte[1024];
-//                while (fis.read(buffer) != -1) {
-//                    Log.i("content", new String(buffer, StandardCharsets.UTF_8));
-//                }
-//                SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedPref.edit();
-//                editor.putString(getString(R.string.currentdatekey), new Date().toString());
-//                editor.apply();
-//
-//                String currdate = sharedPref.getString(getString(R.string.currentdatekey),"");
-//                Log.i("sharedpref", currdate);
-                svm.writeToFile(flight.getFlightCode() + " " + flight.getAirline());
-                requestSavePermissionLauncher.launch(filename);
+            flight = flightTableViewModel.getFlights().get(adapter.getSelectedPos());
+            String filename = "посадочный_талон_рейс_" + flight.getFlightCode() + ".txt" ;
+            svm.writeToFile(flight.getFlightCode() + " " + flight.getAirline());
+            //svm.saveSharedPref();
+            requestSavePermissionLauncher.launch(filename);
 
         });
 
     }
-
-
-
     @NonNull
     @Override
     public NavController getNavController() {

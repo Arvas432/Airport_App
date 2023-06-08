@@ -20,6 +20,7 @@ public class FlightsDatabaseRepos
     {
         AppDatabase db = AppDatabase.getDatabase(app);
         flightDAO = db.flightDAO();
+
     }
 
     public LiveData<List<Flight>> get(){

@@ -30,6 +30,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     private List<Flight> items;
     private FlightTableViewModel flightTableViewModel;
 
+
     public CustomRecyclerViewAdapter(Context context, FlightTableViewModel flightTableViewModel_, Fragment fragment) {
 
         this.items =  flightTableViewModel_.getFlights();

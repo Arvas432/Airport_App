@@ -29,79 +29,55 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 public class StorageDataSource {
-    private Application app;
-    private String WriteData;
     private FlightsDatabaseRepos repos;
+    private SharedPreferences sharedPref;
+    private File file;
+    private  FileInputStream fis;
 
     public StorageDataSource(Application app)
     {
-        this.app = app;
         repos = new FlightsDatabaseRepos(app);
-    }
-//    private final ActivityResultLauncher<String> requestSavePermissionLauncher =
-//            f.registerForActivityResult(new ActivityResultContracts.CreateDocument("txt/*"), uri -> {
-//                if (uri != null) {
-//                    try {
-//
-//                        ParcelFileDescriptor txt = app.getApplicationContext().getContentResolver().openFileDescriptor(uri, "w");
-//                        FileOutputStream fileOutputStream = new FileOutputStream(txt.getFileDescriptor());
-//                        fileOutputStream.write((WriteData).getBytes());
-//                        fileOutputStream.close();
-//                        txt.close();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
+        file = new File(app.getFilesDir() ,"savedata.txt");
+        sharedPref  = app.getSharedPreferences( "",Context.MODE_PRIVATE);
+        try
+        {
+            fis = app.getApplicationContext().openFileInput("savedata.txt");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
+    }
     public void writeTo(String data)
     {
-
-        String filename = "savedata.txt";
         try {
-            File file = new File(app.getApplicationContext().getFilesDir() ,filename);
+
             file.createNewFile();
             FileOutputStream fos = new FileOutputStream(file, true);
             fos.write(data.getBytes());
             fos.close();
-//            File file = Environment.getExternalStoragePublicDirectory(
-//                    Environment.DIRECTORY_DOWNLOADS);
-//          //  File file = new File(app.getApplicationContext().getFilesDir(), filename);
-//
-//
-//
-//
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-//            writer.write(data);
-//            writer.close();
-//            File myFile = new File("/sdcard/mysdfile.txt");
-//            myFile.createNewFile();
-//            FileOutputStream fOut = new FileOutputStream(myFile);
-//            OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
-//            myOutWriter.append(data);
-//            myOutWriter.close();
-//            fOut.close();
-            FileInputStream fis = app.getApplicationContext().openFileInput(filename);
+
             byte[] buffer = new byte[1024];
             while (fis.read(buffer) != -1) {
                 Log.i("content", new String(buffer, StandardCharsets.UTF_8));
             }
-            SharedPreferences sharedPref = app.getSharedPreferences( "",Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString( app.getString(R.string.currentdatekey), new Date().toString());
-            editor.apply();
-            String currdate = sharedPref.getString(app.getString(R.string.currentdatekey),"");
-            Log.i("sharedpref", currdate);
-//            ParcelFileDescriptor txt = app.getApplicationContext().getContentResolver().openFileDescriptor(, "w");
-//            FileOutputStream fileOutputStream = new FileOutputStream(txt.getFileDescriptor());
-//            fileOutputStream.write((WriteData).getBytes());
-//            fileOutputStream.close();
-//            txt.close();
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+    public void WriteToSharedPref()
+    {
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("date_key", new Date().toString());
+        editor.apply();
+        String currdate = sharedPref.getString("date_key","");
+        Log.i("sharedpref", currdate);
+    }
+
 
 }

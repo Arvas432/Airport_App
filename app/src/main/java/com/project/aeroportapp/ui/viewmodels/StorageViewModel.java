@@ -27,6 +27,10 @@ public class StorageViewModel extends ViewModel {
     {
         repository.saveLastFlight(input);
     }
+    public void saveSharedPref()
+    {
+        repository.SharedPref();
+    }
 
 
 

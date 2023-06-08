@@ -1,6 +1,7 @@
 package com.project.aeroportapp.ui.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import java.util.List;
 public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapter.ViewHolder>{
     private final LayoutInflater inflater;
     private List<Flight> items;
+    private int selectedPos = RecyclerView.NO_POSITION;
     private DatabaseViewModel flightTableViewModel;
     public DatabaseListAdapter(Context context, DatabaseViewModel flightTableViewModel_, Fragment fragment)
     {
@@ -42,7 +44,12 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
         View view = inflater.inflate(R.layout.tablo_table_list_item, parent, false);
         return new ViewHolder(view);
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+    public int getSelectedPos() {
+        return selectedPos;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView Itemcity;
         private TextView Itemtime;
         private TextView ItemflightCode;
@@ -58,6 +65,12 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
             ItemregistrationFinished = view.findViewById(R.id.tablo_table_text_view_period);
             Itemairline = view.findViewById(R.id.tablo_table_text_view_days);
             Itemgate = view.findViewById(R.id.text_view_gate);
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
 
         }
     }
@@ -65,8 +78,10 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Flight item = items.get(position);
+        holder.itemView.setSelected(selectedPos == position);
         holder.Itemtime.setText(item.getTime());
         holder.Itemairline.setText(item.getAirline());
+        holder.itemView.setBackgroundColor(selectedPos == position ? Color.rgb(228, 236, 247): Color.TRANSPARENT);
         if(item.getRegistrationFinished())
         {
             holder.ItemregistrationFinished.setText("Регистрация окончена");
@@ -79,8 +94,14 @@ public class DatabaseListAdapter extends RecyclerView.Adapter<DatabaseListAdapte
         holder.Itemcity.setText(item.getCity());
         holder.Itemgate.setText("Выход - " +item.getGate());
         holder.itemView.setOnClickListener((layout) -> {
+            if(position == RecyclerView.NO_POSITION) return;
             Log.i("TAG", "Element " + position + " clicked");
-            Toast.makeText(inflater.getContext(), "Element " + position + " clicked", Toast.LENGTH_SHORT).show();
+            notifyItemChanged(selectedPos);
+            selectedPos = holder.getAdapterPosition();
+            notifyItemChanged(selectedPos);
+
+
+            //Toast.makeText(inflater.getContext(), "Element " + position + " clicked", Toast.LENGTH_SHORT).show();
         });
     }
     @Override

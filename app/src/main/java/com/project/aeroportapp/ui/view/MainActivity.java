@@ -36,28 +36,13 @@ public class MainActivity extends FragmentActivity implements NavHost {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         NavController nv = Navigation.findNavController(findViewById(R.id.fragment_flights));
+
         ImageButton table_button = findViewById(R.id.btn_menu_home);
-        ImageButton reg_button = findViewById(R.id.btn_menu_reg);
+        ImageButton schedule_button = findViewById(R.id.schedule_button);
         ImageButton services_button = findViewById(R.id.btn_menu_services);
         ImageButton wiki_button = findViewById(R.id.btn_menu_wiki);
+        ImageButton more_button = findViewById(R.id.btn_menu_more);
 
-        wiki_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (currentfragment){
-                    case 1:
-                        nv.navigate(R.id.action_flightFragment_to_fragmentWiki);
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        nv.navigate(R.id.action_fragmentServices_to_fragmentWiki4);
-                    case 4:
-                        break;
-                }
-                currentfragment = 4;
-            }
-        });
         table_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +50,7 @@ public class MainActivity extends FragmentActivity implements NavHost {
                     case 1:
                         break;
                     case 2:
+                        nv.navigate(R.id.action_scheduleFragment_to_flightFragment2);
                         break;
                     case 3:
                         nv.navigate(R.id.action_fragmentServices_to_flightFragment2);
@@ -72,8 +58,33 @@ public class MainActivity extends FragmentActivity implements NavHost {
                     case 4:
                         nv.navigate(R.id.action_fragmentWiki_to_flightFragment2);
                         break;
+                    case 5:
+                        nv.navigate(R.id.action_mainMenuFragment_to_flightFragment);
+                        break;
                 }
                 currentfragment = 1;
+            }
+        });
+        schedule_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        nv.navigate(R.id.action_flightFragment_to_scheduleFragment);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        nv.navigate(R.id.action_fragmentServices_to_scheduleFragment);
+                        break;
+                    case 4:
+                        nv.navigate(R.id.action_fragmentWiki_to_scheduleFragment);
+                        break;
+                    case 5:
+                        nv.navigate(R.id.action_mainMenuFragment_to_scheduleFragment);
+                        break;
+                }
+                currentfragment = 2;
             }
         });
         services_button.setOnClickListener(new View.OnClickListener() {
@@ -84,49 +95,63 @@ public class MainActivity extends FragmentActivity implements NavHost {
                         nv.navigate(R.id.action_flightFragment_to_fragmentServices);
                         break;
                     case 2:
+                        nv.navigate(R.id.action_scheduleFragment_to_fragmentServices);
                         break;
                     case 3:
                         break;
                     case 4:
-                        nv.navigate(R.id.action_fragmentWiki_to_fragmentServices3);
+                        nv.navigate(R.id.action_fragmentWiki_to_fragmentServices);
+                        break;
+                    case 5:
+                        nv.navigate(R.id.action_mainMenuFragment_to_fragmentServices);
+                        break;
                 }
                 currentfragment = 3;
             }
         });
+        wiki_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        nv.navigate(R.id.action_flightFragment_to_fragmentWiki);
+                        break;
+                    case 2:
+                        nv.navigate(R.id.action_scheduleFragment_to_fragmentWiki);
+                        break;
+                    case 3:
+                        nv.navigate(R.id.action_fragmentServices_to_fragmentWiki4);
+                    case 4:
+                        break;
+                    case 5:
+                        nv.navigate(R.id.action_mainMenuFragment_to_fragmentWiki);
+                        break;
+                }
+                currentfragment = 4;
+            }
+        });
+        more_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (currentfragment){
+                    case 1:
+                        nv.navigate(R.id.action_flightFragment_to_mainMenuFragment);
+                        break;
+                    case 2:
+                        nv.navigate(R.id.action_scheduleFragment_to_mainMenuFragment);
+                        break;
+                    case 3:
+                        nv.navigate(R.id.action_fragmentServices_to_mainMenuFragment);
+                    case 4:
+                        nv.navigate(R.id.action_fragmentWiki_to_mainMenuFragment);
+                        break;
+                    case 5:
+                        break;
+                }
+                currentfragment = 5;
+            }
+        });
 
-//        NavController navController = Navigation.findNavController(this, R.id.bottombar_fragment);
-//        NavController navController1 = Navigation.findNavController(this, R.id.fragment_flights);
-
-//        RecyclerView rv = findViewById(R.id.recycler_view_tablo);
-//        FlightTableViewModel flightTableViewModel = new FlightTableViewModel() ;
-//        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(this, FlightsRepository.get(), this);
-//        LinearLayoutManager lm = new LinearLayoutManager(this);
-//        rv.setAdapter(adapter);
-//        rv.setLayoutManager(lm);
-
-
-//        btn_fragment_departure = findViewById(R.id.btn_fragment_internal);
-//        btn_fragment_arrival = findViewById(R.id.btn_fragment_international);
-//
-//        setNewFragment(firstFragment);
-//
-//        btn_fragment_departure .setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                SecondFragment secondFragment = new SecondFragment();
-//                setNewFragment(firstFragment);
-//            }
-//        });
-//
-//        btn_fragment_arrival.setOnClickListener(new View.OnClickListener(){
-//
-//            @Override
-//            public void onClick(View view) {
-//                SecondFragment secondFragment = new SecondFragment();
-//                setNewFragment(secondFragment);
-//            }
-//        });
 
     }
 
@@ -135,32 +160,5 @@ public class MainActivity extends FragmentActivity implements NavHost {
     public NavController getNavController() {
         return null;
     }
-//    private void setNewFragment(Fragment fragment) {
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.frame_layout, fragment);
-//        ft.addToBackStack(null);
-//        ft.commit();
-//    }
 
-
-//    public void goSchedule(View view) {
-//        Intent intent = new Intent(this, ScheduleActivity.class);
-//        startActivity(intent);
-//    }
-//    public void goServices(View view) {
-//        Intent intent = new Intent(this, ServicesActivity.class);
-//        startActivity(intent);
-//    }
-//    public void goWiki(View view) {
-//        Intent intent = new Intent(this, WikiActivity.class);
-//        startActivity(intent);
-//    }
-//    public void goMainMenu(View view) {
-//        Intent intent = new Intent(this, MainMenuCustomActivity.class);
-//        startActivity(intent);
-//    }
-//    public void startNewActivity(View v) {
-//        Intent intent = new Intent(this, SecondActivity.class);
-//        startActivity(intent);
-//    }
 }

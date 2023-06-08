@@ -130,15 +130,14 @@
             android:src="@drawable/boarding_white" />
 
         <ImageButton
-            android:id="@+id/btn_menu_reg"
+            android:id="@+id/schedule_button"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/transparent"
             android:contentDescription="@string/heading_register"
             android:scaleType="centerInside"
-
-            android:src="@drawable/passport_control" />
+            android:src="@drawable/ticket_flight" />
 
         <ImageButton
             android:id="@+id/btn_menu_services"

@@ -2,13 +2,19 @@ package com.project.aeroportapp.ui.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.project.aeroportapp.R;
+import com.project.aeroportapp.ui.adapters.ServicesList_adapter;
+import com.project.aeroportapp.ui.viewmodels.ServiceViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +25,7 @@ public class FragmentWiki extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private View rootview;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -60,7 +67,18 @@ public class FragmentWiki extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wiki, container, false);
+        rootview = inflater.inflate(R.layout.fragment_wiki, container, false);
+        return rootview;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        RecyclerView rv = rootview.findViewById(R.id.list_view_wiki);
+        ServiceViewModel vm = new ServiceViewModel();
+        ServicesList_adapter sad = new ServicesList_adapter(this.getContext(), vm, this);
+        LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
+        rv.setAdapter(sad);
+        rv.setLayoutManager(lm);
+        super.onViewCreated(view, savedInstanceState);
     }
 }

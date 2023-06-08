@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_flightFragment_to_fragmentServices"
             app:destination="@id/fragmentServices" />
+        <action
+            android:id="@+id/action_flightFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/scheduleFragment"
@@ -28,6 +31,15 @@
         <action
             android:id="@+id/action_scheduleFragment_to_flightFragment2"
             app:destination="@id/flightFragment" />
+        <action
+            android:id="@+id/action_scheduleFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_scheduleFragment_to_fragmentServices"
+            app:destination="@id/fragmentServices" />
+        <action
+            android:id="@+id/action_scheduleFragment_to_fragmentWiki"
+            app:destination="@id/fragmentWiki" />
     </fragment>
     <fragment
         android:id="@+id/fragmentWiki"
@@ -35,11 +47,17 @@
         android:label="FragmentWiki"
         tools:layout="@layout/fragment_wiki">
         <action
-            android:id="@+id/action_fragmentWiki_to_fragmentServices3"
-            app:destination="@id/fragmentServices" />
-        <action
             android:id="@+id/action_fragmentWiki_to_flightFragment2"
             app:destination="@id/flightFragment" />
+        <action
+            android:id="@+id/action_fragmentWiki_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_fragmentWiki_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_fragmentWiki_to_fragmentServices"
+            app:destination="@id/fragmentServices" />
     </fragment>
     <fragment
         android:id="@+id/fragmentServices"
@@ -51,6 +69,30 @@
             app:destination="@id/fragmentWiki" />
         <action
             android:id="@+id/action_fragmentServices_to_flightFragment2"
+            app:destination="@id/flightFragment" />
+        <action
+            android:id="@+id/action_fragmentServices_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <action
+            android:id="@+id/action_fragmentServices_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.project.aeroportapp.ui.view.MainMenuFragment"
+        android:label="MainMenuFragment"
+        tools:layout="@layout/fragment_main_menu">
+        <action
+            android:id="@+id/action_mainMenuFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_fragmentWiki"
+            app:destination="@id/fragmentWiki" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_fragmentServices"
+            app:destination="@id/fragmentServices" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_flightFragment"
             app:destination="@id/flightFragment" />
     </fragment>
 </navigation>

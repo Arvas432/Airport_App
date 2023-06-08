@@ -52,88 +52,22 @@
             android:text="@string/tab_special_services"
             android:textColor="@color/blue_700" />
     </LinearLayout>
-
-
-    <!--    <ListView-->
-    <!--        android:id="@+id/list_view_schedule"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@id/tabbar_bg"-->
-    <!--        android:background="@color/body_background_grey">-->
-    <!--    </ListView>-->
-
-    <GridView
-        android:id="@+id/grid_view_services"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tabbar_bg"
-        android:animateLayoutChanges="false"
         android:background="@color/white"
-        android:choiceMode="singleChoice"
-        android:clickable="true"
-        android:numColumns="2"/>
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/bottombar_bg"-->
+        android:id="@+id/servicesList"
+        android:layout_below="@+id/tabbar_bg"></androidx.recyclerview.widget.RecyclerView>
+<!--    <GridView-->
+<!--        android:id="@+id/grid_view_services"-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/tabbar_bg"-->
+<!--        android:animateLayoutChanges="false"-->
 <!--        android:background="@color/white"-->
-
-<!--        android:orientation="horizontal">-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_menu_home"-->
-<!--            android:layout_width="64sp"-->
-<!--            android:layout_height="64sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:backgroundTint="@android:color/transparent"-->
-<!--            android:contentDescription="@string/heading_tablo"-->
-<!--            android:scaleType="centerInside"-->
-<!--            android:src="@drawable/boarding" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_menu_reg"-->
-<!--            android:layout_width="64dp"-->
-<!--            android:layout_height="64dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:backgroundTint="@android:color/transparent"-->
-<!--            android:contentDescription="@string/heading_register"-->
-<!--            android:scaleType="centerInside"-->
-
-<!--            android:src="@drawable/passport_control" />-->
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_menu_services"-->
-<!--            android:layout_width="64sp"-->
-<!--            android:layout_height="64sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:backgroundTint="@color/blue_700"-->
-<!--            android:contentDescription="@string/heading_services"-->
-<!--            android:scaleType="centerInside"-->
-
-<!--            android:src="@drawable/business_trip_white" />-->
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_menu_wiki"-->
-<!--            android:layout_width="64sp"-->
-<!--            android:layout_height="64sp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:backgroundTint="@android:color/transparent"-->
-<!--            android:contentDescription="@string/heading_wiki"-->
-<!--            android:scaleType="centerInside"-->
-<!--            android:src="@drawable/information" />-->
-
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btn_menu_more"-->
-<!--            android:layout_width="64dp"-->
-<!--            android:layout_height="64dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:backgroundTint="@android:color/transparent"-->
-<!--            android:scaleType="centerInside"-->
-<!--            android:src="@drawable/more_horiz_48px"-->
-
-<!--            />-->
-<!--    </LinearLayout>-->
+<!--        android:choiceMode="singleChoice"-->
+<!--        android:clickable="true"-->
+<!--        android:numColumns="2"/>-->
 
 </RelativeLayout>
 

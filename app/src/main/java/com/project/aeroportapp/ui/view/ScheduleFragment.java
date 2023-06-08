@@ -71,7 +71,6 @@ public class ScheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
         return rootView;
     }
@@ -79,20 +78,11 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        Button back_button = rootView.findViewById(R.id.btn_back_from_schedule);
         ScheduleViewModel vm = new ScheduleViewModel();
         RecyclerView rv = rootView.findViewById(R.id.list_view_schedule);
         ScheduleLIstAdapter adapter = new ScheduleLIstAdapter(this.getContext(), vm, this);
         LinearLayoutManager lm = new LinearLayoutManager(this.getContext());
         rv.setAdapter(adapter);
         rv.setLayoutManager(lm);
-
-        back_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_scheduleFragment_to_flightFragment2);
-            }
-        });
     }
 }
